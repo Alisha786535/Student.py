@@ -48,9 +48,11 @@ def risk_label(score):
 results = pd.DataFrame({
     "student_id": X_test.index,
     "risk_score": risk_scores,
-    "risk_label": [risk_label(s) for s in risk_scores],
+    "risk_label": [risk_label(risk_scores)],
+    
     "predicted_dropout": (risk_scores >= 0.5).astype(int)
 })
 
 results.to_csv("predictions.csv", index=False)
 joblib.dump(model, "dropout_model.pkl")
+
