@@ -1,1 +1,7 @@
-# Student.py
+#This project predicts the risk of student dropout using the xAPI-Edu-Data.csv dataset. The data was already clean, with no missing values. The target variable dropout was created from the Class feature: low-performance students were labeled as 1, and medium/high-performance students as 0. Categorical features were one-hot encoded, and numerical features were standardized for model training.
+
+#All available features were used, including student engagement (RaisedHands, VisitedResources, AnnouncementsView, Discussion), academic performance (TestScore), absences, and parental information. A logistic regression model was chosen for its simplicity, interpretability, and ability to provide probability-based risk scores. The model was trained on an 80/20 split, and predictions are evaluated using probability scores rather than strict class labels.
+
+#Risk thresholds were defined as Low (score < 0.4), Medium (0.4–0.7), and High (≥ 0.7). The top contributing factors for dropout include low test scores, high absence days, low engagement with resources, and low parental satisfaction. The Streamlit app highlights the top 20 high-risk students and provides feature importance to explain why a student is at risk.
+
+#As a bonus, students are labeled with risk levels (Low/Medium/High), and simple action suggestions are provided for advisors: High-risk students should receive immediate attention and support, medium-risk students should be monitored and guided, and low-risk students should continue with regular engagement strategies.
