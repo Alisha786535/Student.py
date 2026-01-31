@@ -17,7 +17,7 @@ df.info()
 df['Class'].value_counts()
 # I will eliminate l performance student so i store it in 1 and will not eliminate medium performance and high performance so it will be zero.
 df['dropout'] = df['Class'].apply(lambda x: 1 if x == 'L' else 0)
-X = df.drop(columns=['Class', 'dropout'])
+X = df.drop(columns=['Class', 'dropout'],errors='ignore')
 y=df['dropout']
 categorical_cols = X.select_dtypes(include='object').columns
 numerical_cols = X.select_dtypes(exclude='object').columns
