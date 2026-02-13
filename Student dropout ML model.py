@@ -10,7 +10,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report
-df = pd.read_csv('xAPI-Edu-Data.csv')
+df = pd.read_csv('Data.csv')
 np.shape(df)
 df.info()
 # Okay the Data is already clean
@@ -48,11 +48,10 @@ def risk_label(score):
 results = pd.DataFrame({
     "student_id": X_test.index,
     "risk_score": risk_scores,
-    "risk_label": [risk_label(risk_scores)],
+    # "risk_label": [risk_label],
     
     "predicted_dropout": (risk_scores >= 0.5).astype(int)
 })
 
 results.to_csv("predictions.csv", index=False)
 joblib.dump(model, "dropout_model.pkl")
-
